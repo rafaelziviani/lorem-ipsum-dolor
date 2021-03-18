@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            background-color: rgb(216, 248, 152);
+            font-family: 'Segoe UI', Tahoma;
+            font-size: 20px;
+        }
+
+        h1 {
+            color: rgb(255, 0, 0)
+        }
+
+        h4 {
+            color: rgb(26, 117, 255)
+        }
+
+        .image {
+            width: 150px;
+            height: 150px;
+            position: relative;
+        }
+
+        #form {
+            background-color: seashell;
+            border: 7px solid rgb(0, 0, 0);
+            padding: 12px;
+            margin-top: 10px;
+            width: fit-content;
+            box-align: right;
+            position: relative;
+
+        }
+
+        button {
+            width: 55px;
+            height: 20px;
+            font-size: 10px;
+            background-color: rgb(255, 225, 0);
+        }
+
+        button:hover {
+            background-color: rgb(38, 228, 209);
+        }
+    </style>
+    <title>Weather Exercise</title>
+</head>
+
+<body>
+    <label>
+        <h1>Check The Weather Before Going Out!</h1>
+    </label>
+
+    <form id="form">
+        <select id="weather">
+            <option value="" selected>--Select One--</option>
+            <option value="Sunny">Sunny</option>
+            <option value="Cloudy">Cloudy</option>
+            <option value="Raining">Raining</option>
+            <option value="Snowing">Snowing</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+    <h2 id="msg"></h2>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", checkWeather)
+        function checkWeather(event) {
+            event.preventDefault();
+            const todaysWeather = document.getElementById("weather").value;
+            if (todaysWeather === "Sunny") {
+                document.getElementById("msg").innerHTML =
+                    `It's very sunny today, make sure to use sunblock and sunglasses 🌞🌞🌞`
+            } else if (todaysWeather === "Cloudy") {
+                document.getElementById("msg").innerHTML =
+                    `It's cloudy today, stay home and read a book by the window!⛅⛅⛅`
+            } else if (todaysWeather === "Raining") {
+                document.getElementById("msg").innerHTML =
+                    `It's raining today, you'll probably need an umbrella ☔☔☔`
+            } else if (todaysWeather === "Snowing") {
+                document.getElementById("msg").innerHTML =
+                    `YAYYY. It's snowing! Let's go Snowboarding 🏂🏂🏂`
+            }
+        }
+    </script>
+    <br>
+    <h4>You can learn more about me on <a href="https://github.com/rafaelziviani">My GitHub Profile.</a></h4>
+
+    <img class="image"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/The_Weather_Channel_logo_2005-present.svg/1200px-The_Weather_Channel_logo_2005-present.svg.png" />
+</body>
+
+</html>

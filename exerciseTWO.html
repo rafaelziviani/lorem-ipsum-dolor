@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask name and display</title>
+
+</head>
+
+<body>
+    <form id="form">
+        <label for="name">
+            <h4>Type in your name below and select your gender<h4>
+        </label>
+        <input type="text" id="name" name autocomplete="off" placeholder="                  Write your name"
+            size="30px">
+        <br>
+        <br>
+
+        <select name="gender" id="gender">
+            <option value="">--Select--</option>
+            <option value="fem">Feminine</option>
+            <option value="masc">Masculine</option>
+        </select>
+        <button id="buttonStyle" type="submit">Submit</button>
+    </form>
+
+    <h3 id="message"></h3>
+
+    <style>
+        h4 {
+            color: orangered;
+            font-style: italic;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: rgb(181, 231, 233);
+        }
+
+        select {
+            block-size: 40px;
+        }
+
+        #form {
+            font-family: 'Segoe UI', Tahoma;
+            font-size: 25px;
+        }
+
+        .colorFem {
+            background-color: rgb(253, 253, 253);
+            border: black 1px solid;
+            width: fit-content;
+            position: absolute;
+            padding: 5px;
+            color: blue;
+        }
+
+        .colorMasc {
+            background-color: rgb(255, 255, 255);
+            border: black 1px solid;
+            width: fit-content;
+            position: absolute;
+            padding: 5px;
+            color: rgb(253, 0, 245);
+        }
+
+        button {
+            width: 80px;
+            height: 35px;
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+            background-color: rgb(0, 0, 0);
+        }
+
+        button:hover {
+            background-color: rgb(55, 0, 255);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", sendForm);
+
+        function sendForm(event) {
+            event.preventDefault();
+            let name, sex, msg;
+            name = document.getElementById("name").value;
+            sex = document.getElementById("gender").value;
+            if (sex === "fem") {
+                msg = `Welcome to my page Ms. ${name}!👰`;
+                document.getElementById("message").classList.add("colorFem");
+            } else if (sex === "masc") {
+                msg = `Welcome to my page Mrs. ${name}!🤵`;
+                document.getElementById("message").classList.add("colorMasc");
+            }
+            document.getElementById("message").innerHTML = msg;
+        }
+    </script>
+
+    <img src="https://mydesktopwalls.com/wp-content/uploads/2020/05/Anonymous-Computer-Wallpaper-2020.jpg">
+</body>
+
+</html>
